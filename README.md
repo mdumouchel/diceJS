@@ -48,7 +48,7 @@ before_roll
 
 
 TODO - Some of the things I would like to do with this.
-Continue to document the features available
-Decouple some of the interface options from the dice.
-Decouple the THREE render and initialization.
-Decouple the cannon render and initialization.
+  * Continue to document the features available
+  * Decouple some of the interface options from the dice.
+  * Decouple the THREE render and initialization.
+  * Decouple the cannon render and initialization.
