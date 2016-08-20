@@ -8,7 +8,8 @@ I decided to try and document it's uses.
 Also a starting point for making whatever changes are nesscary.
 
 BOWER
-Note 
+Note the teall code is using older version of cannon and THREE.  I'm not certain what the version is.  I hope at some point we can get this on the latest.  For the time being I'm inculding those depencies in the repo
+
 Basic Example
 
 ```
