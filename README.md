@@ -7,6 +7,9 @@ He has offered the code up for use and to make it a bit easier.
 I decided to try and document it's uses.  
 Also a starting point for making whatever changes are nesscary.
 
+BOWER
+Note the teall code is using older version of cannon and THREE.  I'm not certain what the version is.  I hope at some point we can get this on the latest.  For the time being I'm inculding those depencies in the repo
+
 Basic Example
 
 ```
@@ -52,3 +55,5 @@ TODO - Some of the things I would like to do with this.
   * Decouple some of the interface options from the dice.
   * Decouple the THREE render and initialization.
   * Decouple the cannon render and initialization.
+  * Update the code to be able run on newer version of THREE and CANNON
+  * Unit test - To be honest this code is might be way beyond my ability to test.
