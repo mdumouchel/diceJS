@@ -12,27 +12,54 @@
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-			var renderer = new THREE.WebGLRenderer();
+			var renderer = new THREE.WebGLRenderer({ alpha: true });
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
 			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			var cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+			//var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			
+			var loader = new THREE.TextureLoader();
+			loader.load('/diceTexture.jpg', function(texture){
+				var x = document.createElement("canvas");
+				var xc = x.getContext("2d");
+				x.width = x.height = 128;
+				xc.shadowColor = "#000";
+				xc.shadowBlur = 7;
+				xc.fillStyle = "black";
+				xc.textAlign = "center";
+            	xc.textBaseline = "middle";
+				xc.fillRect(0, 0, 128, 128);
 
-			camera.position.z = 5;
+				xc.fillStyle = "white";
+				xc.font = "30pt arial bold";
+				xc.fillText('1', 58, 70);
 
-			var render = function () {
-				requestAnimationFrame( render );
+				var xm = new THREE.MeshBasicMaterial({ map: new THREE.Texture(x), transparent: true });
+				xm.map.needsUpdate = true;
 
-				cube.rotation.x += 0.1;
-				cube.rotation.y += 0.1;
+				var material = new THREE.MeshBasicMaterial({
+					map: texture
+				})
 
-				renderer.render(scene, camera);
-			};
+				var cube = new THREE.Mesh( 
+					geometry,//new THREE.BoxGeometry( 562, 562, 562, 1, 1, 1 ), 
+					xm );
+				scene.add( cube );
 
-			render();
+				camera.position.z = 5;
+
+				var render = function () {
+					requestAnimationFrame( render );
+
+					 //cube.rotation.x += 0.1;
+					// cube.rotation.y += 0.1;
+
+					renderer.render(scene, camera);
+				};
+
+				render();
+			})
 		</script>
 	</body>
 </html>
