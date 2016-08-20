@@ -7,6 +7,8 @@ He has offered the code up for use and to make it a bit easier.
 I decided to try and document it's uses.  
 Also a starting point for making whatever changes are nesscary.
 
+BOWER
+Note 
 Basic Example
 
 ```
@@ -52,3 +54,5 @@ TODO - Some of the things I would like to do with this.
   * Decouple some of the interface options from the dice.
   * Decouple the THREE render and initialization.
   * Decouple the cannon render and initialization.
+  * Update the code to be able run on newer version of THREE and CANNON
+  * Unit test - To be honest this code is might be way beyond my ability to test.
