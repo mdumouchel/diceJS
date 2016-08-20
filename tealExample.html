@@ -14,69 +14,44 @@
 		<script src="teall/teal.js"></script>
 		<script src="teall/dice.js"></script>
 		<script src="teall/main.js"></script>
-				<script type="text/javascript" defer="defer">
-		setTimeout(function() {
+		<script type="text/javascript" defer="defer">
+		// setTimeout(function() {
 			
-        dice_initialize(document.body);
+  //       dice_initialize(document.body);
     
-		}, 100)
+		// }, 100)
 			//Build the diceBox
-			// setTimeout(function(argument) {
-			// 	var canvas = $t.id('canvas');
-			// 	canvas.style.width = window.innerWidth - 1 + 'px';
-			// 	canvas.style.height = window.innerHeight - 1 + 'px';
-			// 	//Not sure if this is needed.
-			// 	$t.dice.use_true_random = false;
-			// 	var box = new $t.dice.dice_box(canvas, { w: 500, h: 300 });
+			setTimeout(function(argument) {
+				var canvas = $t.id('canvas');
+				canvas.style.width = window.innerWidth - 1 + 'px';
+				canvas.style.height = window.innerHeight - 1 + 'px';
+				//Not sure if this is needed.
+				$t.dice.use_true_random = false;
+				var box = new $t.dice.dice_box(canvas, { w: 500, h: 300 });
 				
-			// 	box.rolling = false;
+				box.rolling = false;
 				
-			// 	//Not sure
-			// 	//box.animate_selector = false;
-			// 	function notation_getter() {
-			// 		return $t.dice.parse_notation("4d6");
-			// 	}
+				//Not sure
+				//box.animate_selector = false;
+				function notation_getter() {
+					return $t.dice.parse_notation("4d6");
+				}
 
-			// 	function before_roll(vectors, notation, callback) {
-			// 		callback();
-			// 	}
+				function before_roll(vectors, notation, callback) {
+					callback();
+				}
 
-			// 	function after_roll(notation, result) {
-			// 		console.log(notation, result)
-			// 	}
+				function after_roll(notation, result) {
+					console.log(notation, result)
+				}
 
-			// 	box.start_throw(notation_getter, before_roll, after_roll);
+				box.start_throw(notation_getter, before_roll, after_roll);
 
-			// }, 100);
+			}, 100);
 		</script>
 	</head>
-	<body style="margin: 0">
-		
-    <div id="info_div" style="display: none">
-        <div class="center_field">
-            <span id="label"></span>
-        </div>
-        <div class="center_field">
-            <div class="bottom_field">
-                <span id="labelhelp">click to continue or tap and drag again</span>
-            </div>
-        </div>
-    </div>
-    <div id="selector_div" style="display: none">
-        <div class="center_field">
-            <div id="sethelp">
-                choose your dice set by clicking the dices or by direct input of notation,<br/>
-                tap and drag on free space of screen or hit throw button to roll
-            </div>
-        </div>
-        <div class="center_field">
-            <input type="text" id="set" value="4d6"></input><br/>
-            <button id="clear">clear</button>
-            <button style="margin-left: 0.6em" id="throw">throw</button>
-        </div>
-    </div>
-    <div id="canvas"></div>
-
-
+	
+	<body >
+		<div id="canvas"></div>
 	</body>
 </html>
