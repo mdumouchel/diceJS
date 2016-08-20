@@ -274,7 +274,7 @@
     this.ambient_light_color = 0xf0f5fb;
     this.spot_light_color = 0xefdfd5;
     this.selector_back_colors = { color: 0x404040, shininess: 0, emissive: 0x858787 };
-    this.desk_color = 0xdfdfdf;
+    this.desk_color = 0x000000;
 
     this.known_types = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'];
     this.dice_face_range = { 'd4': [1, 4], 'd6': [1, 6], 'd8': [1, 8], 'd10': [0, 9], 
@@ -377,16 +377,17 @@
         this.world = new CANNON.World();
 
         this.renderer = window.WebGLRenderingContext
-            ? new THREE.WebGLRenderer({ antialias: true })
-            : new THREE.CanvasRenderer({ antialias: true });
+            ? new THREE.WebGLRenderer({ antialias: true, alpha: true })
+            : new THREE.CanvasRenderer({ antialias: true, alpha: true });
         container.appendChild(this.renderer.domElement);
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFShadowMap;
-        this.renderer.setClearColor(0xffffff, 1);
+        //this.renderer.setClearColor(0xffffff, 1);
+        this.renderer.setClearColor( 0x000000, 0 );
 
         this.reinit(container, dimentions);
 
-        this.world.gravity.set(0, 0, -9.8 * 800);
+        this.world.gravity.set(0, 0, 0 * 800);
         this.world.broadphase = new CANNON.NaiveBroadphase();
         this.world.solver.iterations = 16;
 
@@ -470,8 +471,10 @@
 
         if (this.desk) this.scene.remove(this.desk);
         this.desk = new THREE.Mesh(new THREE.PlaneGeometry(this.w * 2, this.h * 2, 1, 1), 
-                new THREE.MeshPhongMaterial({ color: that.desk_color }));
+                new THREE.MeshPhongMaterial({ color: that.desk_color, alphaMap: 0 }));
         this.desk.receiveShadow = true;
+        this.desk.material.opacity = .1;
+        this.desk.material.transparent = true;
         this.scene.add(this.desk);
 
         this.renderer.render(this.scene, this.camera);
